@@ -2,8 +2,8 @@ package com.codedicated.data
 
 import com.codedicated.data.model.Message
 import org.litote.kmongo.coroutine.CoroutineDatabase
-
 class MessageDataSourceImpl(
+
     private val db: CoroutineDatabase
 ): MessageDataSource {
 
