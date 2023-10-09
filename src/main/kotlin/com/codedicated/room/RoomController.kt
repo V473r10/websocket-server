@@ -5,6 +5,7 @@ import com.codedicated.data.model.Message
 import io.ktor.websocket.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.text.SimpleDateFormat
 import java.util.concurrent.ConcurrentHashMap
 
 class RoomController(
@@ -28,8 +29,8 @@ class RoomController(
         members.values.forEach { member ->
             val messageEntity = Message(
                 text = message,
-                username = senderUsername,
-                timestamp = System.currentTimeMillis()
+                user = senderUsername,
+                datetime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis())
             )
             messageDataSource.insertMessage(messageEntity)
 

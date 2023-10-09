@@ -10,7 +10,7 @@ class MessageDataSourceImpl(
     private val messages = db.getCollection<Message>()
     override suspend fun getMessages(): List<Message> {
         return messages.find()
-            .descendingSort(Message::timestamp)
+            .descendingSort(Message::datetime)
             .toList()
     }
 
